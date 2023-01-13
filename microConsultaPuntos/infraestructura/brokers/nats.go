@@ -79,6 +79,19 @@ func (n *NatsEventStore) OnCreatedFeed(f func(entidades.Usuario)) (err error) {
 	return
 }
 
+func (n *NatsEventStore) OnCreatedRedimirPuntos(f func(entidades.RedimirPuntos)) (err error) {
+	var topic = "topic_redimir_punto_usuario"
+	msg := entidades.RedimirPuntos{}
+	n.feedCreatedSub, err = n.conn.Subscribe(topic, func(m *nats.Msg) {
+		err := n.decodeMessage(m.Data, &msg)
+		if err != nil {
+			fmt.Println("Error leyendo topic", err)
+			return
+		}
+		f(msg)
+	})
+	return
+}
 func (n *NatsEventStore) SubscribeCreated(_ context.Context, topic string) (<-chan entidades.Usuario, error) {
 	m := entidades.Usuario{}
 	n.feedCreatedChan = make(chan entidades.Usuario, 64)

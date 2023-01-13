@@ -7,6 +7,25 @@ import (
 )
 
 func (s *Server) RedimirPuntoHandler(ctx *fiber.Ctx) error {
+	var modelo Modelos.RedimirPuntos
+	err := ctx.BodyParser(&modelo)
+	if err != nil {
+		return ctx.Status(fiber.StatusInternalServerError).JSON("json enviado es invalido")
+	}
+	errs := modelo.Validar()
+	if len(errs) > 0 {
+		return ctx.Status(fiber.StatusBadRequest).JSON(Modelos.Response{
+			Errors: errs,
+		})
+	}
+	err = s.servicioPuntos.ServicioRedimirPuntos(modelo)
+	if err != nil {
+		return ctx.Status(fiber.StatusInternalServerError).JSON(Modelos.Response{
+			Errors: []string{
+				err.Error(),
+			},
+		})
+	}
 	return ctx.SendStatus(201)
 }
 

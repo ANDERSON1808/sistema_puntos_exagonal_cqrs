@@ -37,3 +37,7 @@ func (p ServicioPuntos) ServicioAcumularPuntos(modelo *Modelos.RequestAcumularPu
 
 	return
 }
+
+func (p ServicioPuntos) ServicioRedimirPuntos(m Modelos.RedimirPuntos) (err error) {
+	return eventos.EmitirRedimirPuntos(m)
+}

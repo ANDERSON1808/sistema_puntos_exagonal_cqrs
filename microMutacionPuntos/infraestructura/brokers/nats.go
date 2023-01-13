@@ -7,6 +7,7 @@ import (
 	"github.com/nats-io/nats.go"
 	"log"
 	"microMutationPuntos/dominio/entidades"
+	"microMutationPuntos/infraestructura/Modelos"
 )
 
 type NatsEventStore struct {
@@ -56,6 +57,15 @@ func (n *NatsEventStore) PublishCreated(_ context.Context, msg *entidades.Usuari
 		return err
 	}
 	return n.conn.Publish(topic, data)
+}
+func (n *NatsEventStore) PublishRedimir(ctx context.Context, feed Modelos.RedimirPuntos, topic string) error {
+	log.Printf("Start process publish nats, topic: %v, msn: %x\n", topic, feed)
+	b := bytes.Buffer{}
+	err := gob.NewEncoder(&b).Encode(feed)
+	if err != nil {
+		return err
+	}
+	return n.conn.Publish(topic, b.Bytes())
 }
 
 func (n *NatsEventStore) decodeMessage(data []byte, m interface{}) error {

@@ -36,6 +36,11 @@ func Run() (err error) {
 		log.Fatal(err)
 	}
 
+	err = n.OnCreatedRedimirPuntos(servicios.RedimirPuntos)
+	if err != nil {
+		return err
+	}
+
 	eventos.SetEventStore(n)
 	defer eventos.Close()
 

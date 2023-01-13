@@ -10,6 +10,7 @@ type EventStore interface {
 	PublishCreated(ctx context.Context, feed *entidades.Usuario, topic string) error
 	SubscribeCreated(ctx context.Context, topic string) (<-chan entidades.Usuario, error)
 	OnCreatedFeed(f func(entidades.Usuario)) (err error)
+	OnCreatedRedimirPuntos(f func(entidades.RedimirPuntos)) (err error)
 }
 
 var eventStore EventStore
@@ -32,4 +33,7 @@ func SubscribeCreated(ctx context.Context, topic string) (<-chan entidades.Usuar
 
 func OnCreatedFeed(f func(entidades.Usuario)) (err error) {
 	return eventStore.OnCreatedFeed(f)
+}
+func OnCreatedRedimirPuntos(f func(entidades.RedimirPuntos)) (err error) {
+	return eventStore.OnCreatedRedimirPuntos(f)
 }

@@ -24,7 +24,6 @@ func Run() (err error) {
 	}
 
 	db := repositorio.StartDynamo()
-	err = migraciones.CrearTablaUsuario(db)
 	err = migraciones.CrearTablaPuntos(db)
 	if err != nil {
 		fmt.Println("Error al intentar crear o actualizar tablas", err)
@@ -32,9 +31,7 @@ func Run() (err error) {
 	puntosRepositorio := dominioRepositorio.NewPuntosRepositorio(db)
 	servicioPuntos := servicios.NewServicioPuntos(puntosRepositorio)
 
-	usuarioRepositorio := dominioRepositorio.NewUsuarioRepositorio(db)
-	servicioUsuario := servicios.NewServicioUsuarios(usuarioRepositorio)
-	svr := New(cfg, servicioPuntos, servicioUsuario)
+	svr := New(cfg, servicioPuntos)
 	n, err := events.NewNats(fmt.Sprintf("nats://%s", "51.81.84.60:4222"), "XPLdg4/kxR4", "7Pc4sIAdYH7kwHuHOU0CfA")
 	if err != nil {
 		return err

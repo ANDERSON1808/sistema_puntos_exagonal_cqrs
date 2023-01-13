@@ -17,7 +17,7 @@ type ServicioPuntos struct {
 func NewServicioPuntos(repositorio *repositorio.PuntosRepositorio) *ServicioPuntos {
 	return &ServicioPuntos{repositorio: repositorio}
 }
-func (p ServicioPuntos) ServicioAcumularPuntos(usuarios *ServicioUsuarios, modelo *Modelos.RequestAcumularPuntos) (err error) {
+func (p ServicioPuntos) ServicioAcumularPuntos(modelo *Modelos.RequestAcumularPuntos) (err error) {
 	puntoExiste, err := p.repositorio.BuscarPuntoId(modelo.PuntoId)
 	if err != nil {
 		fmt.Println("Error buscar punto id", err)

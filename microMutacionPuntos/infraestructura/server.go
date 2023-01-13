@@ -9,18 +9,16 @@ import (
 )
 
 type Server struct {
-	configApp        configuracion.Config
-	engine           *fiber.App
-	servicioPuntos   *servicios.ServicioPuntos
-	ServicioUsuarios *servicios.ServicioUsuarios
+	configApp      configuracion.Config
+	engine         *fiber.App
+	servicioPuntos *servicios.ServicioPuntos
 }
 
-func New(cfg configuracion.Config, servicioPuntos *servicios.ServicioPuntos, servicioUsuarios *servicios.ServicioUsuarios) Server {
+func New(cfg configuracion.Config, servicioPuntos *servicios.ServicioPuntos) Server {
 	svr := Server{
-		configApp:        cfg,
-		engine:           fiber.New(),
-		servicioPuntos:   servicioPuntos,
-		ServicioUsuarios: servicioUsuarios,
+		configApp:      cfg,
+		engine:         fiber.New(),
+		servicioPuntos: servicioPuntos,
 	}
 	svr.engine = fiber.New(fiber.Config{
 		ErrorHandler: adaptador.ErrorHandler,

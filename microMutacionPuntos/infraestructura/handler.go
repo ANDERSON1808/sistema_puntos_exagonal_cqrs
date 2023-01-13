@@ -22,7 +22,7 @@ func (s *Server) AcumularPuntoHandler(ctx *fiber.Ctx) error {
 			Errors: errs,
 		})
 	}
-	err = s.servicioPuntos.ServicioAcumularPuntos(s.ServicioUsuarios, modelo)
+	err = s.servicioPuntos.ServicioAcumularPuntos(modelo)
 	if err != nil {
 		fmt.Println("Error en servicio acomulador puntos", err)
 		return ctx.Status(fiber.StatusInternalServerError).JSON(Modelos.Response{

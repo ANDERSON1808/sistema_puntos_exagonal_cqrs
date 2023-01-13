@@ -1,11 +1,16 @@
 version: '3.7'
+
+secrets:
+  aws_creds:
+    file: ~/.aws
 services:
   dynamodb-local:
     image: amazon/dynamodb-local:latest
     container_name: dynamodb-local
     ports:
       - "8000:8000"
-
+    networks:
+      - dir1_some-net
   dynamodb-admin:
     image: aaronshaf/dynamodb-admin
     ports:
@@ -17,8 +22,53 @@ services:
       AWS_SECRET_ACCESS_KEY: local
     depends_on:
       - dynamodb-local
+    networks:
+      - dir1_some-net
+
   nats:
     image: "nats-streaming:0.9.2"
     restart: always
     ports:
       - "4222:4222"
+    networks:
+      - dir1_some-net
+
+  micro-consulta-puntos:
+    build: ./microConsultaPuntos/
+    ports:
+        - "8874:8874"
+    depends_on:
+      - dynamodb-local
+      - nats
+    secrets:
+      - source: aws_creds
+        target: /root/.aws
+    environment:
+      AWS_PROFILE: default
+    volumes:
+      - ./code:/code
+    networks:
+      - dir1_some-net
+    restart: always
+
+  micro-mutacion-puntos:
+    build: ./microMutacionPuntos/
+    ports:
+      - "34963:34963"
+    depends_on:
+      - dynamodb-local
+      - nats
+    secrets:
+    - source: aws_creds
+      target: /root/.aws
+    environment:
+      AWS_PROFILE: default
+    volumes:
+      - ./code:/code
+    networks:
+      - dir1_some-net
+    restart: always
+
+networks:
+  dir1_some-net:
+    external: true

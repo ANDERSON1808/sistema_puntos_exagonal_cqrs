@@ -9,7 +9,7 @@ import (
 )
 
 func StartDynamo() (db *dynamodb.DynamoDB) {
-	var server = "http://localhost:8000"
+	var server = "http://dynamodb-local:8000"
 	sess := session.Must(session.NewSession())
 	db = dynamodb.New(sess, &aws.Config{
 		Region:      aws.String("us-west-2"),

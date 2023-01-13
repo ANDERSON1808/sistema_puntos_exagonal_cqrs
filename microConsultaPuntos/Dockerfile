@@ -8,5 +8,5 @@ RUN go build -tags musl -o main .
 FROM alpine:3.13.6
 WORKDIR /app
 COPY --from=builder /app .
-EXPOSE 34963
+EXPOSE 8874
 CMD ["/app/main"]

@@ -32,7 +32,7 @@ func Run() (err error) {
 	servicioPuntos := servicios.NewServicioPuntos(puntosRepositorio)
 
 	svr := New(cfg, servicioPuntos)
-	n, err := events.NewNats(fmt.Sprintf("nats://%s", "localhost:4222"))
+	n, err := events.NewNats(fmt.Sprintf("nats://%s", "nats:4222"))
 	if err != nil {
 		return err
 	}

@@ -26,7 +26,7 @@ func Run() (err error) {
 	repoDominio.SetSearchRepository(usuarioRepositorio)
 	defer repoDominio.Close()
 
-	n, err := events.NewNats(fmt.Sprintf("nats://%s", "localhost:4222"))
+	n, err := events.NewNats(fmt.Sprintf("nats://%s", "nats:4222"))
 	if err != nil {
 		return err
 	}

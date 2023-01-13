@@ -16,8 +16,8 @@ type NatsEventStore struct {
 	feedCreatedChan chan entidades.Usuario
 }
 
-func NewNats(url, user, password string) (*NatsEventStore, error) {
-	conn, err := nats.Connect(url, nats.UserInfo(user, password))
+func NewNats(url string) (*NatsEventStore, error) {
+	conn, err := nats.Connect(url)
 	if err != nil {
 		return nil, err
 	}

@@ -8,6 +8,7 @@ import (
 )
 
 func OnCreatedFeed(m *entidades.Usuario) {
+	fmt.Println("Inicia proceo para actualizar usuario")
 	usuarioExiste, err := repositorio.BuscarUsuarioId(m.UsuarioId)
 	if err != nil {
 		fmt.Println("Error al validar si usuario existe", err)

@@ -7,7 +7,7 @@ import (
 	"strconv"
 )
 
-func OnCreatedFeed(m *entidades.Usuario) {
+func OnCreatedFeed(m entidades.Usuario) {
 	fmt.Println("Inicia proceo para actualizar usuario")
 	usuarioExiste, err := repositorio.BuscarUsuarioId(m.UsuarioId)
 	if err != nil {
@@ -24,12 +24,12 @@ func OnCreatedFeed(m *entidades.Usuario) {
 		}
 		var total = actual + nuevo
 		m.TotalPuntos = strconv.Itoa(total)
-		err = repositorio.ActualizarUsuario(m)
+		err = repositorio.ActualizarUsuario(&m)
 		if err != nil {
 			fmt.Println("Error ActualizarUsuario", err)
 		}
 	}
-	err = repositorio.CrearUsuario(m)
+	err = repositorio.CrearUsuario(&m)
 	if err != nil {
 		fmt.Println("Error repositorio crear usuario", err)
 	}

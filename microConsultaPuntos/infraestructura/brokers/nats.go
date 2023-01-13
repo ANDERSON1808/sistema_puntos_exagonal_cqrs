@@ -5,6 +5,7 @@ import (
 	"context"
 	"encoding/gob"
 	"encoding/json"
+	"fmt"
 	"github.com/nats-io/nats.go"
 	"log"
 	"microConsultaPuntos/dominio/entidades"
@@ -64,15 +65,16 @@ func (n *NatsEventStore) decodeMessage(data []byte, m interface{}) error {
 	return gob.NewDecoder(&b).Decode(m)
 }
 
-func (n *NatsEventStore) OnCreatedFeed(f func(*entidades.Usuario)) (err error) {
+func (n *NatsEventStore) OnCreatedFeed(f func(entidades.Usuario)) (err error) {
 	var topic = "topic_punt_users"
 	msg := entidades.Usuario{}
 	n.feedCreatedSub, err = n.conn.Subscribe(topic, func(m *nats.Msg) {
 		err := n.decodeMessage(m.Data, &msg)
 		if err != nil {
+			fmt.Println("Error leyendo topic", err)
 			return
 		}
-		f(&msg)
+		f(msg)
 	})
 	return
 }

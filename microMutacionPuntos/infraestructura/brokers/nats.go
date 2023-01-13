@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"context"
 	"encoding/gob"
-	"encoding/json"
 	"github.com/nats-io/nats.go"
 	"log"
 	"microMutationPuntos/dominio/entidades"
@@ -41,11 +40,12 @@ func (n *NatsEventStore) Close() {
 }
 
 func (n *NatsEventStore) encodeMessage(m *entidades.Usuario) (base []byte, err error) {
-	base, err = json.Marshal(m)
+	b := bytes.Buffer{}
+	err = gob.NewEncoder(&b).Encode(m)
 	if err != nil {
-		return
+		return nil, err
 	}
-	return
+	return b.Bytes(), nil
 }
 
 func (n *NatsEventStore) PublishCreated(_ context.Context, msg *entidades.Usuario, topic string) error {

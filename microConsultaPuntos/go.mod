@@ -1,13 +1,12 @@
-module microMutationPuntos
+module microConsultaPuntos
 
 go 1.18
 
 require (
 	github.com/aws/aws-sdk-go v1.44.179
-	github.com/gofiber/fiber/v2 v2.41.0
+	github.com/gorilla/mux v1.8.0
 	github.com/nats-io/nats.go v1.22.1
 	github.com/sirupsen/logrus v1.9.0
-	github.com/spf13/viper v1.14.0
 )
 
 require (

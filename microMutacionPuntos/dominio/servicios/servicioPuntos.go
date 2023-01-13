@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"microMutationPuntos/dominio/entidades"
+	"microMutationPuntos/dominio/eventos"
 	"microMutationPuntos/dominio/repositorio"
 	"microMutationPuntos/infraestructura/Modelos"
 	"strconv"
@@ -27,16 +28,12 @@ func (p ServicioPuntos) ServicioAcumularPuntos(usuarios *ServicioUsuarios, model
 	}
 	puntos := entidades.NewPuntos(modelo.PuntoId, strconv.Itoa(modelo.UsuarioId), strconv.Itoa(modelo.Punto), modelo.DetalleMovimiento)
 	usuario := entidades.NewUsuario(modelo.UsuarioId, modelo.NombreUsuario, strconv.Itoa(modelo.Punto))
-	err = usuarios.ServicioCrearUsuario(usuario)
-	if err != nil {
-		fmt.Println("Error en servicio crear usuario", err)
-		return
-	}
-
 	err = p.repositorio.AcumularPuntos(puntos)
 	if err != nil {
 		fmt.Println("Error en AcumularPuntos", err)
 		return
 	}
+	eventos.EmitirActualizationPuntosPorUsuario(usuario)
+
 	return
 }

@@ -5,8 +5,10 @@ import (
 	"github.com/spf13/viper"
 	"microMutationPuntos/adaptador/configuracion"
 	"microMutationPuntos/adaptador/repositorio"
+	"microMutationPuntos/dominio/eventos"
 	dominioRepositorio "microMutationPuntos/dominio/repositorio"
 	"microMutationPuntos/dominio/servicios"
+	events "microMutationPuntos/infraestructura/brokers"
 	"microMutationPuntos/infraestructura/migraciones"
 )
 
@@ -33,6 +35,12 @@ func Run() (err error) {
 	usuarioRepositorio := dominioRepositorio.NewUsuarioRepositorio(db)
 	servicioUsuario := servicios.NewServicioUsuarios(usuarioRepositorio)
 	svr := New(cfg, servicioPuntos, servicioUsuario)
+	n, err := events.NewNats(fmt.Sprintf("nats://%s", "51.81.84.60:4222"), "XPLdg4/kxR4", "7Pc4sIAdYH7kwHuHOU0CfA")
+	if err != nil {
+		return err
+	}
+	eventos.SetEventStore(n)
+	defer eventos.Close()
 
 	return svr.Run()
 }

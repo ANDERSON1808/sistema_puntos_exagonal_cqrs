@@ -1,0 +1,54 @@
+{"level":"fatal","msg":"Error in stating serverConfig File \"app\" Not Found in \"[/home/anderson/Documentos/personal_anderson/sistema_puntos_exagonal_cqrs/microMutacionPuntos]\"","time":"2023-01-12T19:45:59-05:00"}
+{"level":"fatal","msg":"Error in stating serverConfig File \"app\" Not Found in \"[/home/anderson/Documentos/personal_anderson/sistema_puntos_exagonal_cqrs/microMutacionPuntos]\"","time":"2023-01-12T19:46:18-05:00"}
+{"level":"fatal","msg":"Error in stating serverConfig File \"app\" Not Found in \"[/home/anderson/Documentos/personal_anderson/sistema_puntos_exagonal_cqrs/microMutacionPuntos]\"","time":"2023-01-12T19:49:57-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T19:51:38-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T19:52:11-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T19:52:53-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T19:53:13-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T19:53:26-05:00"}
+{"level":"fatal","msg":"Error in stating serverUnrecognizedClientException: The security token included in the request is invalid.\n\tstatus code: 400, request id: EHH393Q5BV9F0F5UDAOQD1BPDJVV4KQNSO5AEMVJF66Q9ASUAAJG","time":"2023-01-12T19:56:38-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T20:41:42-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T20:43:41-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T20:58:31-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T20:59:25-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T20:59:29-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T21:29:35-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T21:30:56-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T21:31:38-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T21:32:18-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T21:32:49-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T21:36:06-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T21:37:33-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T21:40:01-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T21:40:19-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T21:40:25-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T21:45:01-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T21:46:05-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T21:49:17-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T21:51:24-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T21:51:57-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T21:53:04-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T21:56:21-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T21:57:28-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T22:05:27-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T22:07:41-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T22:09:55-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T22:10:46-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T22:11:57-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T22:17:04-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T22:18:15-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T22:19:36-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T22:22:09-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T22:26:38-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T22:27:30-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T22:29:26-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T22:30:33-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T22:31:24-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T22:33:10-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T22:39:22-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T22:41:11-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T22:42:08-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T22:42:23-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T22:42:40-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T22:44:43-05:00"}
+{"level":"info","msg":"Starting the application...","time":"2023-01-12T22:45:57-05:00"}
